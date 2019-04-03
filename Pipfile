@@ -1,0 +1,18 @@
+[[source]]
+name = 'pypi'
+url = 'https://pypi.org/simple'
+verify_ssl = true
+
+[dev-packages]
+reports = {path = '.',editable = true}
+mypy = '*'
+pylint = '*'
+pycodestyle = '*'
+
+[packages]
+jinja2 = '*'
+python-toggl = '*'
+sendgrid = '*'
+
+[requires]
+python_version = '3.7'
