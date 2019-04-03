@@ -13,7 +13,7 @@ The code in this repo is basically an [AWS Lambda](https://aws.amazon.com/lambda
 The lambda is meant to be invoked by a Cron trigger every week or so. Emails
 are sent using [Sendgrid](https://sendgrid.com/marketing/sendgrid-services-cro/?extProvId=5&extPu=49397-gaw&extLi=164417502&sem_adg=8807285742&extCr=8807285742-338975812295&extSi=&extTg=&keyword=%2Bsendgrid&extAP=1t1&extMT=b&gclid=EAIaIQobChMI7-2_lfyz4QIV1eeaCh2SUAA6EAAYASAAEgLu-vD_BwE) API. This model 
 is cost effective: Running one AWS Lambda weekly or even daily is [very cheap](https://aws.amazon.com/lambda/pricing/). 
-As for emails, Sengrid [Free plan](https://sendgrid.com/free/) offers an order of magnitude more emails that we need.              
+As for emails, Sengrid [Free plan](https://sendgrid.com/free/) offers an order of magnitude more emails than we need.              
 
 ## Getting started
 TBD
