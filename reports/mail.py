@@ -2,7 +2,10 @@
 import os
 from dataclasses import dataclass
 
+from python_http_client import HTTPError
 from sendgrid import SendGridAPIClient, Mail
+
+from reports.exceptions import SendGridError
 
 DEFAULT_MAIL_FROM = 'reports@shapiy.github.io'
 DEFAULT_MAIL_SUBJECT = 'Weekly report'
@@ -51,8 +54,8 @@ def send(html: str, params: MailParams) -> None:
         message.cc = params.cc_list
 
     client = SendGridAPIClient(params.sendgrid_api_key)
-    response = client.send(message)
-
-    if response.status_code not in range(200, 300):
-        raise RuntimeError('Sendgrid API failure: {}, {}'.format(
-            response.status_code, response.body))
+    try:
+        client.send(message)
+    except HTTPError as exc:
+        raise SendGridError('Sendgrid API failure: {}, {}'.format(
+            exc.status_code, exc.body)) from exc

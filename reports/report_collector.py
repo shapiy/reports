@@ -8,6 +8,8 @@ from operator import attrgetter
 
 from toggl.api_client import TogglClientApi
 
+from reports.exceptions import TogglError
+
 
 @dataclass
 class TogglParams:
@@ -145,7 +147,7 @@ class _ReportCollector:  # pylint: disable=too-few-public-methods
     def _json(response):
         json = response.json()
         if response.status_code != 200:
-            raise RuntimeError(
+            raise TogglError(
                 'Cannot perform Toggl request: {}'.format(json))
         return json
 
