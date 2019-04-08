@@ -23,11 +23,15 @@ class MailParams:
     @property
     def to_emails_list(self):
         """Get TO addresses to a list of strings."""
+        if not self.to_emails:
+            return []
         return self.to_emails.split(',')
 
     @property
     def cc_list(self):
         """Get CC addresses to a list of strings."""
+        if not self.cc:
+            return []
         return self.cc.split(',')
 
     @staticmethod

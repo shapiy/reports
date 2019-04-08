@@ -22,6 +22,8 @@ class TogglParams:
     @property
     def client_ids_list(self):
         """Get Client IDs to include as a list of strings."""
+        if not self.client_ids:
+            return []
         return [int(cid) for cid in self.client_ids.split(',')]
 
     @staticmethod
